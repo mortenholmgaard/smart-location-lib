@@ -214,8 +214,11 @@ public class SmartLocation {
         }
 
         public void destroy() {
-            provider.destroy();
-            provider = null;
+            MAPPING.clear();
+            if (provider != null) {
+                provider.destroy();
+                provider = null;
+            }
             params = null;
             smartLocation = null;
         }
